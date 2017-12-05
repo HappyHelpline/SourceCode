@@ -1,0 +1,46 @@
+.header1{
+	height: 50px;
+}
+
+.head-wrapper{
+	margin-right: 10%;
+    margin-left: 10%;
+    margin-top: .5%;
+    margin-bottom: 1%;
+}
+
+.logo{
+	width: 40%;
+    float: left;
+    margin-top: 26px;
+}
+
+.logo-img {
+	width: 170px;
+    float: left;
+    height: 40px; 
+    padding: 2px; 
+}
+.component{
+	width: 60%;
+    float: left;
+    margin-top: 20px;
+}
+.component ul{
+	float: right;
+}
+.component ul li{
+	list-style: none;
+    display: inline;
+    /* padding: 16px; */
+}
+.component a{
+	color:blue;
+	text-decoration: none;
+}
+
+/* #mainNav .navbar-nav>li.nav-item>a.nav-link{
+        color:#333333 !important;
+        font-weight: 700;
+    } */
+

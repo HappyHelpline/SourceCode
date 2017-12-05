@@ -1,0 +1,192 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Edit Profile</h4>
+                    </div>
+                    <div class="content">
+                        <form>
+                            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input type="text" class="form-control" placeholder="First Name" pattern="[a-zA-Z]+" #nameFn="ngModel" [(ngModel)]="firstname"
+                                            name="firstname" value="Creative Code Inc." required>
+                                        <div *ngIf="nameFn.invalid && (nameFn.dirty || nameFn.touched)">
+                                            <span class="alertInform" *ngIf="nameFn.errors.required">
+                                                First Name is required.
+                                            </span>
+                                            <span class="alertInform" *ngIf="nameFn.errors.pattern">
+                                                Only Alphabets allowed.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control" placeholder="Last Name" pattern="[a-zA-Z]+" #nameLn="ngModel" [(ngModel)]="lname"
+                                            name="lnames" value="Creative Code Inc." required>
+                                        <div *ngIf="nameLn.invalid && (nameLn.dirty || nameLn.touched)">
+                                            <span class="alertInform" *ngIf="nameLn.errors.required">
+                                                Last Name is required.
+                                            </span>
+                                            <span class="alertInform" *ngIf="nameLn.errors.pattern">
+                                                Only Alphabets allowed.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input type="text" class="form-control" [disabled]=true placeholder="Username" #usernameLV="ngModel" [(ngModel)]="username" name="username"
+                                            value="michael23" required>
+                                        <div *ngIf="usernameLV.invalid && (usernameLV.dirty || usernameLV.touched)">
+                                            <span class="alertInform" *ngIf="usernameLV.errors.required">
+                                                Username is required.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input type="email" class="form-control" #emailLV="ngModel" [(ngModel)]="email" name="email" placeholder="Email" required>
+                                        <div *ngIf="emailLV.invalid && (emailLV.dirty || emailLV.touched)">
+                                                <span class="alertInform" *ngIf="emailLV.errors.required">
+                                                    Email is required.
+                                                </span>
+                                                </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Mobile</label>
+                                        <input type="text" class="form-control" #mobileLV="ngModel" [(ngModel)]="mobile" name="mobile" placeholder="mobile" value="mobile"
+                                            required>
+                                            <div *ngIf="mobileLV.invalid && (mobileLV.dirty || mobileLV.touched)" >
+                                                    <span class="alertInform" *ngIf="mobileLV.errors.required">
+                                                        Mobile Number is required.
+                                                    </span>
+                                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Pan</label>
+                                    <input type="text" class="form-control" #panLV="ngModel" [(ngModel)]="pan" name="pan" placeholder="pan" value="Andrew" required>
+                                    <div *ngIf="panLV.invalid && (panLV.dirty || panLV.touched)" >
+                                            <span class="alertInform" *ngIf="panLV.errors.required">
+                                                Pan Number is required.
+                                            </span>
+                                            </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <input type="text" class="form-control" pattern="[a-zA-Z0-9\s]+" #addressLV="ngModel" [(ngModel)]="address" name="address"
+                                            required placeholder="Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                        <div *ngIf="addressLV.invalid && (addressLV.dirty || addressLV.touched)">
+                                            <span class="alertInform" *ngIf="addressLV.errors.required">
+                                                Address is required.
+                                            </span>
+                                            <span class="alertInform" *ngIf="addressLV.errors.pattern">
+                                                special characteers not allowed.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>State</label>
+                                        <input type="text" class="form-control" #stateLV="ngModel" [(ngModel)]="state" name="state" placeholder="state" value="Mike"
+                                            required>
+                                        <div *ngIf="stateLV.invalid && (stateLV.dirty || stateLV.touched)">
+                                            <span class="alertInform" *ngIf="stateLV.errors.required">
+                                                State is required.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Pin Code</label>
+                                        <input type="text" class="form-control" #pincodeLV="ngModel" [(ngModel)]="pincode" name="pincode" placeholder="pincode" value="Andrew"
+                                            required>
+                                        <div *ngIf="pincodeLV.invalid && (pincodeLV.dirty || pincodeLV.touched)">
+                                            <span class="alertInform" *ngIf="pincodeLV.errors.required">
+                                                Pincode is required.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>About Me</label>
+                                        <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <button type="submit" class="btn btn-info btn-fill pull-right" (click)="updateProfile()">Update Profile</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-user">
+                    <div class="image">
+                        <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." />
+                    </div>
+                    <div class="content">
+                        <div class="author">
+                            <a href="#">
+                                <!-- <img class="avatar border-gray" src="assets/img/faces/face-3.jpg" alt="..."/> -->
+
+                                <h4 class="title">Profile Name
+                                    <br />
+                                    <small>Profile</small>
+                                </h4>
+                            </a>
+                        </div>
+                        <!-- <p class="description text-center"> "Lamborghini Mercy <br>
+                            Your chick she so thirsty <br>
+                            I'm in that two seat Lambo"
+                        </p> -->
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <button href="#" class="btn btn-simple">
+                            <i class="fa fa-facebook-square"></i>
+                        </button>
+                        <button href="#" class="btn btn-simple">
+                            <i class="fa fa-twitter"></i>
+                        </button>
+                        <button href="#" class="btn btn-simple">
+                            <i class="fa fa-google-plus-square"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

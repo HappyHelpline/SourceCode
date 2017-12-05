@@ -1,0 +1,17 @@
+<ul *ngIf="message && message.type === 'success'" class="alert-msg list-unstyled list-inline">
+    <li class=""><i class="fa fa-check" aria-hidden="true"></i></li>
+    <li class="">
+        <p class="alert-heading">Confirmation</p>
+        <p>{{message.text}}</p>
+    </li>
+</ul>
+<ul *ngIf="message && message.type === 'error'" class="alert-msg-error list-unstyled list-inline">
+    <!-- <li> <img src="../../../assets/images/alert.png" class="img-of-error"></li> -->
+    <li class="">
+        <p class="alert-heading">Alert</p>
+        <p>{{message.text}}</p>
+    </li>
+</ul>
+
+
+<!--<div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>-->

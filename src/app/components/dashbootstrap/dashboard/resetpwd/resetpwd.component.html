@@ -1,0 +1,49 @@
+<div class="PassBox">
+    <!-- ng if (1) -->
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+    <div class="table-container" *ngIf="resetPassword">
+        <table class="forgetPass">
+            <tr class="tr">
+                <td class="txt">Old Password</td>
+                <td class="inputBox">
+                    <input type="password" name='oldpassword' class="table-input" #oldpass="ngModel" [(ngModel)]="oldpassword" required>
+                </td>
+            </tr>
+            <tr class="tr">
+                <td class="txt">New Password</td>
+                <td class="inputBox">
+                    <input type="password" name='newpassword' (blur)="newPassFunc(newpassword)" class="table-input" #newpass="ngModel" [(ngModel)]="newpassword"
+                        minlength="8" maxlength="10" required>
+                    <div *ngIf="newpass.invalid && (newpass.dirty || newpass.touched)">
+                        <span class="alertInform" *ngIf="newpass.errors.required">
+                            New Password is required.
+                        </span>
+                        <span class="alertInform" *ngIf="newpass.errors.minlength">
+                            Password should be minimum of 8 characters and not more then 10 characters.
+                        </span>
+                    </div>
+                </td>
+            </tr>
+            <tr class="tr">
+                <td class="txt">Confirm Password</td>
+                <td class="inputBox">
+                    <input type="password" name='confnewpassword' (keyup)="confirmpasswordFunc(confnewpassword)" class="table-input" #confnewpass="ngModel"
+                        [(ngModel)]="confnewpassword" required>
+                    <div *ngIf="confnewpass.invalid && (confnewpass.dirty || confnewpass.touched)">
+                        <span class="alertInform" *ngIf="confnewpass.errors.required">
+                            Confirm Password is required.
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <button (click)="resetPasswordFunc()" class="forgotSubmit">Submit</button>
+    </div>
+
+    <div class="container_thanku" *ngIf="thankumessages">
+        <h3 class="hdtext">Thank You</h3>
+        <p>Your Password has been changed sucessfully
+            <br>To Check your password Go to Your Email</p>
+        <a routerLink="/login" routerLinkActive="active">Click Here to Login </a>
+    </div>
+</div>

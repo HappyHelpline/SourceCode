@@ -1,0 +1,129 @@
+<app-header></app-header>
+<div class="container_box">
+	<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+	<div class="new" *ngIf="registerAs">
+		<ul>
+			<li>
+				<label for="">Register As</label>
+				<select [(ngModel)]="typeOfUser" (change)="typeofUserFunc(typeOfUser)">
+					<option *ngFor="let typeofUserData of typeOfUserArray" value= {{typeofUserData.type}}>
+						{{typeofUserData.type}}
+					</option>
+				</select>
+			</li>
+		</ul>
+
+	</div>
+	<div [ngSwitch]="registration">
+		<div *ngSwitchCase="'volunteer'" class="container-form">
+			<form class="textleft">
+				<h3 class="Head">Register Here</h3>
+				<ul>
+					<li>
+						<label for="usr">First Name:</label>
+						<input type="text" class="form-control" [(ngModel)]="first_name" [ngModelOptions]="{standalone: true}" placeholder="Enter First Name">
+
+					</li>
+					<li>
+						<label for="pwd">Last Name</label>
+						<input type="text" class="form-control" [(ngModel)]="last_name" [ngModelOptions]="{standalone: true}" placeholder="Enter Last Name">
+
+					</li>
+					<li>
+						<label for="pwd">Contact No.</label>
+						<input type="text" class="form-control" [(ngModel)]="contact_no" [ngModelOptions]="{standalone: true}" placeholder="Enter Contact No.">
+
+					</li>
+					<li>
+						<label for="pwd">Alternate Contact No.</label>
+						<input type="text" class="form-control" [(ngModel)]="alternate_no" [ngModelOptions]="{standalone: true}" placeholder="Enter Alternate Contact No.">
+
+					</li>
+					<li>
+						<label for="pwd">Email:</label>
+						<input type="text" class="form-control" [(ngModel)]="email_add" [ngModelOptions]="{standalone: true}" placeholder="Enter Email">
+					</li>
+					<li>
+						<label for="Gender">Gender:</label>
+						<span>
+							<input type="radio" name="r1" (change)="radioButtonClick()" [ngModelOptions]="{standalone: true}" [(ngModel)]="gender_type"
+							 [value]="'Male'">Male</span>
+						<span>
+							<input type="radio" name="r1" (change)="radioButtonClick()" [ngModelOptions]="{standalone: true}" [(ngModel)]="gender_type"
+							 [value]="'Female'">Female</span>
+					</li>
+					<li>
+						<label for="pwd">Address</label>
+						<input type="text" class="form-control" [(ngModel)]="address" [ngModelOptions]="{standalone: true}" placeholder="Enter Address">
+					</li>
+					<li>
+						<label for="pwd">State</label>
+						<input type="text" class="form-control" [(ngModel)]="state" [ngModelOptions]="{standalone: true}" placeholder="Enter Address">
+					</li>
+					<li>
+						<label for="pwd">Country</label>
+						<input type="text" class="form-control" [(ngModel)]="country" [ngModelOptions]="{standalone: true}" placeholder="Enter Address">
+					</li>
+					<li>
+						<label for="pwd">Profession</label>
+						<input type="text" class="form-control" [(ngModel)]="professional" [ngModelOptions]="{standalone: true}" placeholder="Enter Address">
+
+					</li>
+					<li>
+						<label for="pwd">How did you come to know</label>
+						<input type="text" class="form-control" [(ngModel)]="about_you" [ngModelOptions]="{standalone: true}" placeholder="Enter Address">
+					</li>
+					<li>
+						<label for="pwd">Language Known</label>
+						<input type="text" class="form-control" [(ngModel)]="language" [ngModelOptions]="{standalone: true}" placeholder="Enter Address">
+					</li>
+					<li>
+						<label for="pwd">Why Join With Us</label>
+						<input type="text" class="form-control" [(ngModel)]="whyjoinus" [ngModelOptions]="{standalone: true}" placeholder="Why Join Us">
+					</li>
+					<li>
+						<label for="pwd">Suitable time to recieve </label>
+						<input type="text" class="form-control" [(ngModel)]="schedule_time" [ngModelOptions]="{standalone: true}" placeholder="Schedule time">
+					</li>
+					<li>
+						<button class="btn btn-primary" (click)="volunteerFunc()">Submit</button>
+					</li>
+				</ul>
+			</form>
+		</div>
+		<div *ngSwitchCase="'client'" class="container-form">
+			<form class="textleft">
+				<h3 class="Head">Register Here</h3>
+				<ul>
+					<li>
+						<label for="usr">Contact Number:</label>
+						<input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="contact_no" placeholder="Enter Contact Number">
+
+					</li>
+					<li>
+						<label for="pwd">Email:</label>
+						<input type="email" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="email_add" placeholder="Enter Email ID">
+
+					</li>
+					<li>
+						<label for="pwd">User Name:</label>
+						<input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="username" placeholder="Enter Username">
+
+					</li>
+					<li>
+						<label for="pwd">Password:</label>
+						<input type="password" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="password" placeholder="Enter Password">
+
+					</li>
+					<li>
+						<button class="btn btn-primary" (click)="registerAsClientfunc()">Submit</button>
+					</li>
+				</ul>
+			</form>
+		</div>
+		<div *ngSwitchCase="'thanks'" class="container-form">
+				You have registered Successfully.
+		</div>
+	</div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,52 @@
+.card{
+    width:31%;
+    color:ghostwhite;
+    box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.17);
+    padding: 20px;
+    float :left;
+    margin: 10px;
+}
+.title{
+    text-align: center;
+    font-weight: 600;
+    color: #bb464a;
+    font-size: 16px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    
+}
+
+.mainTable {
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid #39a6dd;
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-size: 10px;
+    text-transform: uppercase;
+    table-layout: fixed;
+}
+
+.mainTable th {
+    border-top: 0;
+    border: 1px solid hsla(358, 63%, 44%, 0.761);
+    font-weight: bold;
+    background: #ed5c64;
+    color: #fff;
+}
+
+.mainTable td {    
+    border: 1px solid #c5c5c5;
+    color: #333;
+    font-size: 12px;
+    text-transform: initial;
+}
+
+.mainTable td,
+.mainTable th {
+    word-break: break-all;
+    word-break: break-word;
+    text-align: center;
+    line-height: 1.42857143;
+    padding: 8px;
+}

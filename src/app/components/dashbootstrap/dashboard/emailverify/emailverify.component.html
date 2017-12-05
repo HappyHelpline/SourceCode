@@ -1,0 +1,47 @@
+<div class="PassBox">
+    
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+    <div class="table-container" *ngIf="emailverify">
+        <h3 class="Head">Enter your mail</h3>
+        <table class="forgetPass">
+            <tr class="tr">
+                <td class="txt">Email</td>
+                <td class="inputBox">
+                    <input type="text" name='email' class="table-input" #emails="ngModel" [(ngModel)]="email" required>
+                    <div *ngIf="emails.invalid && (emails.dirty ||emails.touched)">
+                            <span class="alertInform" *ngIf=emails.errors.required>
+                                Eamil is required</span>
+                        </div>
+                </td>
+            </tr>
+            
+        </table>
+        <button (click)="emailVerifyFunc()" class="forgotSubmit">submit</button>
+    </div>
+    
+
+    <!-- OTP For email verify -->
+    <div class="table-container" *ngIf="emailOtpVerify">
+        <h3 class="Head">Enter OTP sent to your mail</h3>
+        <table class="forgetPass">
+          <tr class="tr">
+                <td class="txt">OTP</td>
+                <td class="inputBox">
+                    <input type="text" name='userotp' class="table-input" #otps="ngModel" [(ngModel)]="otp" required>
+                    <div *ngIf="otps.invalid && (otps.dirty ||otps.touched)">
+                            <span class="alertInform" *ngIf=otps.errors.required>
+                                    OTP is required</span>
+                        </div>
+                </td>
+            </tr>
+            </table>
+            <button (click)="emailotpVerifyFunc()" class="forgotSubmit">submit</button>
+
+            </div>
+
+            <div class="container_thanku" *ngIf="thankumessages">
+                <h3 class="hdtext">Thanku You</h3>
+                <p>Your Email is Verified</p>
+                <a routerLink="/login" routerLinkActive="active">Click Here to Login </a>
+            </div>
+            </div>

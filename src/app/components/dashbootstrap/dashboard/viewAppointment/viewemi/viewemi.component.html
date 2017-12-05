@@ -1,0 +1,53 @@
+<div class="container-form">
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+  <div class="Product_Details">
+    <ul>
+      <li>
+        <label for="">Status Type</label>
+        <select [(ngModel)]="statusType" (change)="viewAppointmentData()">
+          <option *ngFor="let statusTypeData of statusTypeArray" value= {{statusTypeData.type}}>
+            {{statusTypeData.type}}
+          </option>
+        </select>
+      </li>
+    </ul>
+  </div>
+  <div class="container-form2">
+    <table class="mainTable">
+      <tr>
+        <th>Appointment Id</th>
+        <th>Name</th>
+        <th>Contact No</th>
+        <th>Email Id</th>
+        <th>Scheduled Time</th>
+        <!-- <th>Description</th> -->
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let DataOfAppointmentObj of DataOfAppointment">
+          <td>{{DataOfAppointmentObj.appoint_id}}</td>
+          <td>{{DataOfAppointmentObj.client_id}}</td>
+          <td>{{DataOfAppointmentObj.cl_contact_no}}</td>
+          <td>{{DataOfAppointmentObj.cl_email_id}}</td>
+          <td>{{DataOfAppointmentObj.schedule_date}}</td>
+          <td>{{DataOfAppointmentObj.status}}</td>
+          <td>
+            <div *ngIf="DataOfAppointmentObj.status == 'Approved'">
+              <button class="btn btn-primary" (click)="volunteerFunc(DataOfAppointmentObj, 'Complete')">Complete</button>
+              <button class="btn btn-primary" (click)="volunteerFunc(DataOfAppointmentObj, 'Reject')">Reject</button>
+            </div>
+            <div *ngIf="DataOfAppointmentObj.status == 'Complete'">
+               No Action Required
+            </div>
+            <div *ngIf="DataOfAppointmentObj.status == 'Pending'">
+                <button class="btn btn-primary" (click)="volunteerFunc(DataOfAppointmentObj, 'Reject')">Reject</button>
+                <button class="btn btn-primary" (click)="volunteerFunc(DataOfAppointmentObj, 'Approved')">Approve</button>
+            </div>
+            <div *ngIf="DataOfAppointmentObj.status == 'Reject'">
+                <button class="btn btn-primary" (click)="volunteerFunc(DataOfAppointmentObj, 'Approved')">Approve</button>
+            </div>
+          </td>
+      </tr>
+    </table>
+  </div>
+</div>
