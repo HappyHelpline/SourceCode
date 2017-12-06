@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashclientComponent implements OnInit {
 
-  constructor() { }
+  private appointment;
+  private appointments;
+
+  constructor() {
+    this.appointment = sessionStorage.getItem('appointment');
+    this.appointments = JSON.parse(this.appointment).all_data;
+  }
 
   ngOnInit() {
   }

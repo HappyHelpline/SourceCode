@@ -2,15 +2,15 @@
   <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
   <table class="mainTable">
     <tr>
-      <th>ID</th>
       <th>Name</th>
       <th>Email</th>
+      <th>Available Time</th>
       <th>Action</th>
     </tr>
     <tr *ngFor="let volunteerObjdata of volunteerObj">
-      <td>{{volunteerObjdata.id}}</td>
       <td>{{volunteerObjdata.first_name}}</td>
       <td>{{volunteerObjdata.email_add}}</td>
+      <td>{{volunteerObjdata.schedule_time}}</td>
       <td>
         <button class="button" (click)="upgradeRole(containers, volunteerObjdata)">View</button>
       </td>
@@ -61,14 +61,7 @@
             <label for="">Description</label>
             <input placeholder="Write you description" #Description="ngModel" [(ngModel)]="description" type="text">
           </li>
-          <!-- <li>
-            <label for="">Role*</label>
-            <select [(ngModel)]="typeOfCustomer" (change)="typeOfCustomerFunc(typeOfCustomer)">
-              <option *ngFor="let customerType of customertypesArray" value= {{customerType.customertypes}}>
-                {{customerType.customertypes}}
-              </option>
-            </select>
-          </li> -->
+
         </ul>
       </div>
     </div>

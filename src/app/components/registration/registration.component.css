@@ -57,25 +57,26 @@ label{
 }
 .container-form ul li label, .new ul li label{
    display: inline-block;
-   width: 35%;
+   width: 37%;
    float:left;
    text-align: left;
    font-size: 12px;
    font-weight: 600;
    /* color:white; */
    margin-top: 8px;
+   padding-left: 10px;
 }   
 
 .container-form input[type="text"], .container-form input[type="password"], .container-form input[type="email"], .container-form input[type="number"],.container-form textarea, .container-form select, .new select {
     border: 1px solid #cfcfcf;
     height: 29px;
-    width: 64%;
+    width: 58%;
     float:left;
     background: #f0f0f0;
     font-size: 12px;
     font-family: inherit;
     outline: 0;
-    border-radius: 50px;
+    border-radius: 4px;
  
 }
 /* .container-form input[type="text"], .container-form input[type="password"], .container-form input[type="email"], .container-form input[type="number"],.container-form textarea{
@@ -89,10 +90,10 @@ label{
     border: none;
     cursor: pointer;
     float: left;
-    width: 50%;
+    width: 94.5%;
     text-transform: uppercase;
-    border-radius: 50px;
-    margin: 6px 19%;
+    border-radius: 4px;
+    margin-left: 4px;
 }
 
 .container-form  .cancelbtn {
@@ -148,4 +149,11 @@ span.alertInform {
     /* border-radius: 18px; */
     margin-top: 69px;
     padding-top: 1px;
+}
+.thanku_box{
+    margin: 10% auto;
+    width: 30%;
+    background: whitesmoke;
+    padding: 45px;
+    text-align: center;
 }

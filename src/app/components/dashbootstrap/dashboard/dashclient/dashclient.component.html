@@ -4,12 +4,15 @@
         <tr>
             <th>Doctor's Name</th>
             <th>Appointment Time</th>
+            <th>Description</th>
             <th>Status</th>
         </tr>
-        <tr *ngFor="let value of ">
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr *ngFor="let appoint of appointments">
+            <td>{{appoint.vol_name}}</td>
+            <td>{{appoint.schedule_date}}</td>
+            <td>{{appoint.description}}</td>
+            <td>{{appoint.status}}</td>
         </tr>
     </table>
 </div>
+<!-- *ngFor="let value of " -->

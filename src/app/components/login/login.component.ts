@@ -59,14 +59,17 @@ export class LoginComponent implements OnInit {
         type: this.typeofLogin
       };
       this._loginServiceobj.doLoginSubmitAsClient(loginObj).subscribe(res => {
+       
         this.loading = false;
         this.response = res;
-        console.log(this.response);
+      
         if (parseInt(this.response.status) == 1) {
+          console.log(this.response);
           this._alertService.success(this.response.msg, true);
           sessionStorage.setItem('userType', this.typeofLogin);
           sessionStorage.setItem('clientObj', JSON.stringify(this.response.client));
           sessionStorage.setItem('volunteerObj', JSON.stringify(this.response.volunter));
+          sessionStorage.setItem('appointment', JSON.stringify(this.response.appointment));
           // localStorage.setItem('userType', "Jay");
           this._loginServiceobj.navigateUrl('dashboardcl');
         }
@@ -95,6 +98,7 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem('userType', this.typeofLogin);
           sessionStorage.setItem('clientObj', JSON.stringify(this.response.client));
           sessionStorage.setItem('volunteerObj', JSON.stringify(this.response.profile));
+          sessionStorage.setItem('appointment', JSON.stringify(this.response.appointment));
           this._loginServiceobj.navigateUrl('dashboard');
         }
         else {

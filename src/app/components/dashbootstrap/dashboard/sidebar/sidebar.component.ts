@@ -10,11 +10,12 @@ declare interface RouteInfo {
     rolesRequired: any;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: 'dashboard', title: 'Dashboard', icon: 'pe-7s-graph', class: '', rolesRequired: ['volunteer'] },
-    { path: 'viewappointment', title: 'View Appointment', icon: 'pe-7s-cart', class: '', rolesRequired: ['volunteer'] },
-    { path:'dashboardclient', title:'Dashboard', icon: 'pe-7s-graph', class: '', rolesRequired: ['client']},
-    { path: 'takeappointment', title: 'Take Appointment', icon: 'pe-7s-user', class: '', rolesRequired: ['client'] },
-    { path: 'resetpwd', title: 'Reset Password', icon: 'pe-7s-key', class: '', rolesRequired: ['admin'] }
+    { path: 'dashboard', title: 'Dashboard', icon: 'pe-7s-home', class: '', rolesRequired: ['volunteer'] },
+    { path: 'viewappointment', title: 'View Appointment', icon: 'pe-7s-user', class: '', rolesRequired: ['volunteer'] },
+    { path:'dashboardclient', title:'Dashboard', icon: 'pe-7s-home', class: '', rolesRequired: ['client']},
+    { path: 'takeappointment', title: 'Take Appointment', icon: 'pe-7s-bandaid', class: '', rolesRequired: ['client'] },
+    { path: 'resetpwd', title: 'Reset Password', icon: 'pe-7s-key', class: '', rolesRequired: ['admin'] },
+    { path: 'user', title:'Profile', icon: 'pe-7s-key', class: '', rolesRequired: ['volunteer']}
 ];
 
 @Component({

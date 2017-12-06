@@ -6,10 +6,10 @@
             <th>Appointment Time</th>
             <th>Description</th>
         </tr>
-        <tr *ngFor="let value of ">
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr *ngFor="let appoint of completed">
+            <td>{{appoint.cl_name}}</td>
+            <td>{{appoint.schedule_date}}</td>
+            <td>{{appoint.description}}</td>
         </tr>
     </table>
 </div>
@@ -21,10 +21,10 @@
             <th>Appointment Time</th>
             <th>Description</th>
         </tr>
-        <tr *ngFor="let value of ">
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr *ngFor="let appoint of pending">
+            <td>{{appoint.cl_name}}</td>
+            <td>{{appoint.schedule_date}}</td>
+            <td>{{appoint.description}}</td>
         </tr>
     </table>
 </div>
@@ -36,10 +36,10 @@
             <th>Appointment Time</th>
             <th>Description</th>
         </tr>
-        <tr *ngFor="let value of ">
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr *ngFor="let appoint of approved">
+            <td>{{appoint.cl_name}}</td>
+            <td>{{appoint.schedule_date}}</td>
+            <td>{{appoint.description}}</td>
         </tr>
     </table>
 </div>

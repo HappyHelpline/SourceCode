@@ -3,7 +3,7 @@ import { UserprofileService } from '../../../../services/userprofile.service';
 import { AlertService } from '../../../../services/alert.service';
 import { LoginService } from '../../../../services/login.service';
 import { DataStorageService } from '../../../../services/data-storage.service';
-
+declare var $: any;
 
 @Component({
   selector: 'app-user',
@@ -12,98 +12,53 @@ import { DataStorageService } from '../../../../services/data-storage.service';
   providers: [UserprofileService]
 })
 export class UserComponent implements OnInit {
-  private firstname: string;
-  private lname: string;
-  private username: string;
-  private password: string;
-  private email: string;
-  private mobile: number;
-  private state: string;
-  private address: any;
-  private pan: any;
-  private pincode: any;
-  public loading: boolean;
-  private response: any;
-  constructor(private _userprofileservice: UserprofileService, private _dataStorage: DataStorageService, private _loginServiceobj: LoginService, private _alertService: AlertService) { }
+  friends: { name: string; }[];
+  private profiledetail;
+  private fname;
+  private lname;
+  private gender;
+  private mobile;
+  private email;
+  private profession;
+  private sch_tym;
+
+
+  constructor(private _userprofileservice: UserprofileService, private _dataStorage: DataStorageService, private _loginServiceobj: LoginService, private _alertService: AlertService) {
+
+    this.profiledetail = JSON.parse(sessionStorage.getItem('volunteerObj'));
+    this.fname = this.profiledetail.first_name;
+    this.lname = this.profiledetail.last_name;
+    this.sch_tym = this.profiledetail.schedule_time;
+    this.mobile = this.profiledetail.contact_no;
+    this.email = this.profiledetail.email_add;
+    this.profession = this.profiledetail.about_you;
+
+   this.friends = [
+      {name:'Lucky'},
+      {name:'Yoga'},
+      {name:'Fauzan'},
+      {name:'Cecep'},
+      {name:'Nurjaman'},
+      {name:'Asti'},
+    ];
+    
+
+
+    console.log(this.profiledetail);
+  }
 
   ngOnInit() {
-    this.loading = true;
-    // const profile: any = this._loginServiceobj.profileData;
-    // this.email = profile.email;
-    // this.mobile = profile.mobile_no;
-    // this.pan = profile.pan;
-    // this.firstname = profile.name;
-    let getprofileobj = {
-    };
-    this._userprofileservice.getprofile(getprofileobj).subscribe(res => {
-      this.response = res;
-      this.loading = false;
-      console.log(this.response);
-      if (parseInt(this.response.status) === 1) {
-        this._alertService.success('Data fetched successfully', true);
-        this.firstname = this.response.fisrtName;//data receive from login
-        this.lname = this.response.lastName;
-        this.mobile = this.response.mobile;
-        this.username = this.response.username;
-        this.email = this.response.email;
-        this.address = this.response.address;
-        this.state = this.response.state;
-        this.pincode = this.response.pincode;
-        this.pan = this.response.pan;
 
+//     $('.selected-items-box').bind('click', function(e) {
+//       $('.wrapper .list').slideToggle('fast');
+//   });
 
-        //  this. _dataStorage.saveData(res);
-      }
-      else {
-        this._alertService.error(this.response.msg, true);
-      }
+//   this.getSelectedItems = function(item){
+//     // alert();
+//      return item.selected;
+//  };
 
-    },
-      (error) => {
-        this.loading = false;
-        this._alertService.error('NETWORK ERROR');
-        console.error('CUSTOMER REQUEST ERROR :', error);
-      },
-      () => {
-        // console.log('PRODUCT MASTER REQUEST COMPLETED');
-      }
-    );
   }
 
-  updateProfile() {
-    this.loading = true;
-    const updateprofileobj = {
-      role: "role",
-      username: this.username,
-      fisrtName: this.firstname,
-      lastName: this.lname,
-      address: this.address,
-      state: this.state,
-      pincode: this.pincode,
-      mobile: this.mobile,
-      pan: this.pan,
-      email: this.email
-    };
-    console.log(updateprofileobj)
-    this._userprofileservice.newupdateProfile(updateprofileobj).subscribe(res => {
-      this.loading = false;
-      this.response = res;
-      if (parseInt(this.response.status) === 1) {
-        this._alertService.success('Profile Successfully Updated');
-         this._userprofileservice.navigateUrl('userProfile');
-      }
-      else {
-        this._alertService.error(this.response.msg);
-      }
-    },
-      (error) => {
-        this.loading = false;
-        this._alertService.error('NETWORK ERROR');
-        console.log('PROFILE UPDATE REQUEST ERROR :', error);
-      },
-      () => {
-        // console.log('PRODUCT TYPE REQUEST COMPLETED');
-      }
-    );
-  }
+
 }

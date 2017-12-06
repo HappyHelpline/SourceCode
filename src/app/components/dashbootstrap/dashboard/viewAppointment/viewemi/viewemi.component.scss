@@ -14,7 +14,7 @@
     box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.17);
 }
 .container-form2 {
-    max-width: 85%;
+    max-width: 100%;
     margin: 10px auto;
     padding: 10px;
     // float: left;
@@ -65,14 +65,13 @@
 .container-form button {
     background-color: #db4c52;
     color: white;
-    padding: 6px 0px;
+    padding: 5px 6px;
     border: none;
     cursor: pointer;
     float: left;
-    width: 49%;
-    border-radius: 50px;
-    margin-left: 2px;
-    margin-bottom: 3px;
+    /* width: 96%; */
+    border-radius: 4px;
+    margin-left: 6%;
 }
 
 .mainTable {

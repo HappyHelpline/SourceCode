@@ -59,6 +59,8 @@ export class RegistrationComponent implements OnInit {
     }
     else {
       this.registration = "volunteer";
+      //this.registration = "thanks";
+      //this.registerAs = false;
     }
 
   }
