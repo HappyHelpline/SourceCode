@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
 import { Observable } from 'rxjs';
 import { CustomerService } from '../../../../../services/customer.service';
 import { DataStorageService } from '../../../../../services/data-storage.service';
@@ -10,6 +11,8 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./viewcustomer.component.scss']
 })
 export class ViewcustomerComponent implements OnInit {
+  schedule_time: any;
+  schedule_times: any;
   customerobj = [];
   dataOfcustomer = [];
   rows = [];
@@ -17,6 +20,7 @@ export class ViewcustomerComponent implements OnInit {
   selected = [];
   temp = [];
   statesList: any;
+  public optionsModel : any;
   public loading: boolean;
   private response: any;
   public closeResult: string;
@@ -27,7 +31,6 @@ export class ViewcustomerComponent implements OnInit {
   public address;
   public mobile;
   public gender_type;
-  public schedule_time;
   public professional;
   public customertypesArray;
   public clientData;
@@ -39,14 +42,25 @@ export class ViewcustomerComponent implements OnInit {
   }
   ngOnInit() {
     this.loading = false;
+    this.optionsModel = [];
     this.clientData = JSON.parse(sessionStorage.getItem('clientObj'));
     this.volunteerObj = JSON.parse(sessionStorage.getItem('volunteerObj'));
-
+    
+    this.volunteerObj.forEach((volunter,index)=>{
+          this.optionsModel[index] = 'Select Appointment Time';
+          let schedule_time = ['Select Appointment Time'];
+          JSON.parse(volunter.schedule_time).forEach((time, index) => {
+            schedule_time.push( time );
+        });
+        this.volunteerObj[index].schedule_time = schedule_time;
+    });
   }
 
-  // MODAL OPEN FUNC
-  upgradeRole(containers, volunteerlistObj) {
+  onChange(obj){
 
+  }
+  // MODAL OPEN FUNC
+  upgradeRole(containers, volunteerlistObj, index) {
     this.volunteerId = volunteerlistObj.volunteer_id;
     //this.customerobj = volunteerlistObj;
     this.email = volunteerlistObj.email_add;
@@ -56,7 +70,7 @@ export class ViewcustomerComponent implements OnInit {
     this.mobile = volunteerlistObj.contact_no;
     this.gender_type = volunteerlistObj.gender_type;
     this.professional = volunteerlistObj.professional;
-    this.schedule_time = volunteerlistObj.schedule_time;
+    this.schedule_time = this.optionsModel[index];
     this.__modalService.open(containers).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {

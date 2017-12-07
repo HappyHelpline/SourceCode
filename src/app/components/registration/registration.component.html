@@ -6,7 +6,7 @@
 			<li>
 				<label for="">Register As</label>
 				<select [(ngModel)]="typeOfUser" (change)="typeofUserFunc(typeOfUser)">
-					<option *ngFor="let typeofUserData of typeOfUserArray" value= {{typeofUserData.type}}>
+					<option *ngFor="let typeofUserData of typeOfUserArray"                           value={{typeofUserData.type}}>
 						{{typeofUserData.type}}
 					</option>
 				</select>
@@ -83,7 +83,7 @@
 					</li>
 					<li>
 						<label for="pwd">Suitable time to recieve </label>
-						<input type="text" class="form-control" [(ngModel)]="schedule_time" [ngModelOptions]="{standalone: true}" placeholder="Schedule time">
+						<ss-multiselect-dropdown [options]="myOptions" name="myOptions" [(ngModel)]="optionsModel" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
 					</li>
 					<li>
 						<button class="btn btn-primary" (click)="volunteerFunc()">Submit</button>
@@ -118,12 +118,14 @@
 					<li>
 						<button class="btn btn-primary" (click)="registerAsClientfunc()">Submit</button>
 					</li>
+					
 				</ul>
 			</form>
 		</div>
 		<div *ngSwitchCase="'thanks'" class="thanku_box">
-				You have registered Successfully.<br>
-				<a routerLink="/login">Click here to login</a>
+			You have registered Successfully.
+			<br>
+			<a routerLink="/login">Click here to login</a>
 		</div>
 	</div>
 </div>

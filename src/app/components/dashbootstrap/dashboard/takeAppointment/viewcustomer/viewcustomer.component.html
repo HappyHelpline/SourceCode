@@ -7,12 +7,18 @@
       <th>Available Time</th>
       <th>Action</th>
     </tr>
-    <tr *ngFor="let volunteerObjdata of volunteerObj">
+    <tr *ngFor="let volunteerObjdata of volunteerObj; let i = index ;">
       <td>{{volunteerObjdata.first_name}}</td>
       <td>{{volunteerObjdata.email_add}}</td>
-      <td>{{volunteerObjdata.schedule_time}}</td>
       <td>
-        <button class="button" (click)="upgradeRole(containers, volunteerObjdata)">View</button>
+        <select [(ngModel)]="optionsModel[i]">
+          <option *ngFor="let schtime of volunteerObjdata.schedule_time; let time=index" value={{schtime}}>
+            {{schtime}}
+          </option>
+        </select>
+      </td>
+      <td>
+        <button class="button" (click)="upgradeRole(containers, volunteerObjdata, i)">View</button>
       </td>
     </tr>
   </table>

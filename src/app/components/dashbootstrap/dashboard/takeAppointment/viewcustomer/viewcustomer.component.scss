@@ -6,8 +6,6 @@
     margin-left: 10px;
     box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.17);
 }
-
-
 .container-form2 {
     max-width: 90%;
     margin: 10px auto;
@@ -15,7 +13,6 @@
     // float: left;
     box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.17);
 }
-
 .container-form button {
     background-color: #db4c52;
     color: white;
@@ -28,7 +25,6 @@
     border-radius: 50px;
     margin-left: 17%;
 }
-
 .mainTable {
     width: 100%;
     max-width: 100%;
@@ -40,7 +36,6 @@
     // table-layout: fixed;
     // background: rgba(115, 142, 238, 0.11);
 }
-
 .mainTable th {
     border-top: 0;
     padding: 8px;
@@ -60,7 +55,6 @@
     font-size: 12px;
     text-transform: initial;
 }
-
 .mainTable tr:nth-child(odd) {
     background: #e4e4e4;
 }
@@ -68,7 +62,6 @@
 .mainTable.mismatchTable tr:nth-child(odd) {
     background: #fff;
 }
-
 .hdtext {
     color: #1057ca;
     font-size: 18px;
@@ -87,13 +80,13 @@
     width: 130px;
     border: none;
     text-transform: uppercase;
-    border-radius: 50px;
+    border-radius: 4px;
     margin: 0% auto;
 } 
 .container_plan{
     width: 90%;
     margin: 0 auto;
-    box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.17);
+    // box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.17);
 }
 .container_plan ul {
     width: 100%;
@@ -119,17 +112,19 @@
     font-weight: 600;
     margin-top: 8px;
  } 
-.container_plan input[type="text"],.container_plan select{
+input[type="text"],select{
     border: 1px solid #776f6f;
     height: 29px;
-    width: 55%;
-    float:left;
     color:black;
     background: #f0f0f0;
     font-size: 12px;
     font-family: inherit;
     outline: 0;
-    // border-radius: 50px;
+    border-radius: 4px;
+ }
+ .container_plan input[type="text"],.container_plan select{
+    width: 55%;
+    float:left;
  }
 .container_plan select{
     text-transform: capitalize;

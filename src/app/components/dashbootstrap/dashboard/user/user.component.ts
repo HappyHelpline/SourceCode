@@ -12,7 +12,7 @@ declare var $: any;
   providers: [UserprofileService]
 })
 export class UserComponent implements OnInit {
-  friends: { name: string; }[];
+
   private profiledetail;
   private fname;
   private lname;
@@ -32,31 +32,13 @@ export class UserComponent implements OnInit {
     this.mobile = this.profiledetail.contact_no;
     this.email = this.profiledetail.email_add;
     this.profession = this.profiledetail.about_you;
-
-   this.friends = [
-      {name:'Lucky'},
-      {name:'Yoga'},
-      {name:'Fauzan'},
-      {name:'Cecep'},
-      {name:'Nurjaman'},
-      {name:'Asti'},
-    ];
-    
-
+    this.gender = this.profiledetail.gender_type;
 
     console.log(this.profiledetail);
   }
 
   ngOnInit() {
 
-//     $('.selected-items-box').bind('click', function(e) {
-//       $('.wrapper .list').slideToggle('fast');
-//   });
-
-//   this.getSelectedItems = function(item){
-//     // alert();
-//      return item.selected;
-//  };
 
   }
 
