@@ -17,7 +17,7 @@ export class UrlManagerService {
   constructor() {
     this.ssl = false;
     //Server1 APIS
-    // this.apiserver = 'ppgateway.filegstnow.com/happytohelp';
+    //this.apiserver = 'ppgateway.filegstnow.com/happytohelp';
     this.apiserver = '172.20.3.152:8080/happytohelp';
     this.apiserver = (this.ssl) ? 'https' : 'http' + '://' + this.apiserver;
     //Server2 APIS
@@ -77,7 +77,7 @@ export class UrlManagerService {
       get: {},
       post: {
         viewAppointment: '/getappoint',
-        modifyAppointment:'/aopoperation'
+        modifyAppointment: '/aopoperation'
       },
       put: {},
       delete: {}
@@ -100,7 +100,7 @@ export class UrlManagerService {
     this.registrationSet = {
       get: {},
       post: {
-        nameAvailability:'/validusr',
+        nameAvailability: '/validusr',
         Registration: '/volunteersave',
         RegistrationAsClient: '/clientsave'
       },
@@ -126,10 +126,7 @@ export class UrlManagerService {
     if (error !== "pass") {
       return error;
     }
-
-
     return this.typeResolve(type, method, indexName);
-
   }
   private typeResolve(type, method, indexName) {
     switch (type) {

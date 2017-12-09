@@ -20,7 +20,7 @@ export class ViewcustomerComponent implements OnInit {
   selected = [];
   temp = [];
   statesList: any;
-  public optionsModel : any;
+  public optionsModel: any;
   public loading: boolean;
   private response: any;
   public closeResult: string;
@@ -37,6 +37,8 @@ export class ViewcustomerComponent implements OnInit {
   volunteerObj: any;
   public volunteerId;
   public description;
+  public date;
+
   //@ViewChild(DatatableComponent) table: DatatableComponent;
   constructor(private _CustomerService: CustomerService, private __modalService: NgbModal, private _dataStorage: DataStorageService, private _alertService: AlertService) {
   }
@@ -45,24 +47,24 @@ export class ViewcustomerComponent implements OnInit {
     this.optionsModel = [];
     this.clientData = JSON.parse(sessionStorage.getItem('clientObj'));
     this.volunteerObj = JSON.parse(sessionStorage.getItem('volunteerObj'));
-    
-    this.volunteerObj.forEach((volunter,index)=>{
-          this.optionsModel[index] = 'Select Appointment Time';
-          let schedule_time = ['Select Appointment Time'];
-          JSON.parse(volunter.schedule_time).forEach((time, index) => {
-            schedule_time.push( time );
-        });
-        this.volunteerObj[index].schedule_time = schedule_time;
+
+    this.volunteerObj.forEach((volunter, index) => {
+      this.optionsModel[index] = 'Select Appointment Time';
+      let schedule_time = ['Select Appointment Time'];
+      JSON.parse(volunter.schedule_time).forEach((time, index) => {
+        schedule_time.push(time);
+      });
+      this.volunteerObj[index].schedule_time = schedule_time;
     });
   }
 
-  onChange(obj){
+  onChange(obj) {
 
   }
   // MODAL OPEN FUNC
   upgradeRole(containers, volunteerlistObj, index) {
+    console.log(volunteerlistObj);
     this.volunteerId = volunteerlistObj.volunteer_id;
-    //this.customerobj = volunteerlistObj;
     this.email = volunteerlistObj.email_add;
     this.fisrtName = volunteerlistObj.first_name;
     this.id = volunteerlistObj.id;
@@ -71,11 +73,13 @@ export class ViewcustomerComponent implements OnInit {
     this.gender_type = volunteerlistObj.gender_type;
     this.professional = volunteerlistObj.professional;
     this.schedule_time = this.optionsModel[index];
+    this.date = volunteerlistObj.myDate.toString();
     this.__modalService.open(containers).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
+   
   }
   //Upgrade function
   Upgrade(close) {
@@ -84,9 +88,10 @@ export class ViewcustomerComponent implements OnInit {
       volunteer_id: this.volunteerId,
       client_id: this.clientData.username,
       sechdule_date: this.schedule_time,
+      date: this.date,
       description: this.description
     }
-
+    console.log(roleObjUpgarde);
     this._CustomerService.newupgradeRole(roleObjUpgarde).subscribe(res => {
       this.loading = false;
       this.response = res;

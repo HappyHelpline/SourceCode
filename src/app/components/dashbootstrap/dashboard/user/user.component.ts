@@ -34,7 +34,7 @@ export class UserComponent implements OnInit {
     this.profession = this.profiledetail.about_you;
     this.gender = this.profiledetail.gender_type;
 
-    console.log(this.profiledetail);
+    // console.log(this.profiledetail);
   }
 
   ngOnInit() {

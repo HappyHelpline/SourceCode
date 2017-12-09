@@ -112,7 +112,7 @@
     font-weight: 600;
     margin-top: 8px;
  } 
-input[type="text"],select{
+input[type="text"], select{
     border: 1px solid #776f6f;
     height: 29px;
     color:black;
@@ -121,6 +121,7 @@ input[type="text"],select{
     font-family: inherit;
     outline: 0;
     border-radius: 4px;
+    text-align: center;
  }
  .container_plan input[type="text"],.container_plan select{
     width: 55%;
@@ -133,3 +134,6 @@ input[type="text"],select{
     padding: 16px 8px;
  }
  
+ #my-div .ng2-datetime-picker {
+    background-color: blue;
+  }

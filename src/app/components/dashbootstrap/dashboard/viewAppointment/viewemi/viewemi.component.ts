@@ -41,7 +41,7 @@ export class ViewemiComponent implements OnInit {
 
     this.clientData = JSON.parse(sessionStorage.getItem('clientObj'));
     this.volunteerObj = JSON.parse(sessionStorage.getItem('volunteerObj'));
-    console.log(this.volunteerObj);
+    //console.log(this.volunteerObj);
     this.showInitData()
     //this.initData();
   }
@@ -53,7 +53,7 @@ export class ViewemiComponent implements OnInit {
     this._ProductService.viewData(objOfModified).subscribe(res => {
       this.loading = false;
       this.response = res;
-      console.log(this.response);
+      //console.log(this.response);
       if (parseInt(this.response.status) === 1) {
         this._alertService.success("Data has been fetched successfully");
       }
@@ -118,7 +118,7 @@ export class ViewemiComponent implements OnInit {
       this.data = data
       this.loading = false;
       if (parseInt(this.data.status) == 1) {
-        console.log(this.data);
+        //console.log(this.data);
         this._alertService.success("Updated Successfully");
         location.reload();
         //this.showInitData();

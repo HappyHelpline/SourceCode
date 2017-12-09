@@ -93,9 +93,9 @@ export class RegistrationComponent implements OnInit {
    this.availTime = [];
     obj.forEach(id => {
         this.availTime.push(this.myOptions[id].elementname);
-        this.myJsonString = JSON.stringify(this.availTime);
     });
-    console.log(this.myJsonString);
+     this.myJsonString = JSON.stringify(this.availTime);
+    //console.log(this.myJsonString);
   }
 
   typeofUserFunc(typeOfUserObj) {
@@ -110,7 +110,7 @@ export class RegistrationComponent implements OnInit {
 
   }
   radioButtonClick(geVal) {
-    console.log(this.gender_type);
+    //console.log(this.gender_type);
   }
   checkName(UserNameData) {
     this.loading = true;
@@ -159,7 +159,7 @@ export class RegistrationComponent implements OnInit {
       "whyjoinus": this.whyjoinus,
       "schedule_time": this.myJsonString
     }
-    console.log(volunteerObj);
+    //console.log(volunteerObj);
     this._registrationService.doRegisterAsVolunteer(volunteerObj).subscribe(res => {
       this.loading = false;
       this.response = res;

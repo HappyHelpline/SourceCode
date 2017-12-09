@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     this.thankumessages = false;
     this.mobileverify = false;
 
-    console.log('On init method of login component');
+    //console.log('On init method of login component');
     this.typeOfUserArray = [{ type: "client" },
     { type: "volunteer" }]
   }
@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
         this.response = res;
       
         if (parseInt(this.response.status) == 1) {
-          console.log(this.response);
+          //console.log(this.response);
           this._alertService.success(this.response.msg, true);
           sessionStorage.setItem('userType', this.typeofLogin);
           sessionStorage.setItem('clientObj', JSON.stringify(this.response.client));
@@ -91,8 +91,8 @@ export class LoginComponent implements OnInit {
       this._loginServiceobj.doLoginSubmitAsVolunteer(loginObj).subscribe(res => {
         this.loading = false;
         this.response = res;
-        console.log(this.response);
-        console.log()
+        //console.log(this.response);
+        //console.log()
         if (parseInt(this.response.status) == 1) {
           this._alertService.success(this.response.msg, true);
           sessionStorage.setItem('userType', this.typeofLogin);

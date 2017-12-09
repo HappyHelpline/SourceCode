@@ -4,12 +4,14 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
+      <th>Available Date</th>
       <th>Available Time</th>
       <th>Action</th>
     </tr>
     <tr *ngFor="let volunteerObjdata of volunteerObj; let i = index ;">
       <td>{{volunteerObjdata.first_name}}</td>
       <td>{{volunteerObjdata.email_add}}</td>
+      <td> <input type="text" placeholder="Select a date..." [(ngModel)]="volunteerObjdata.myDate" ng2-datetime-picker date-only="true" /></td>
       <td>
         <select [(ngModel)]="optionsModel[i]">
           <option *ngFor="let schtime of volunteerObjdata.schedule_time; let time=index" value={{schtime}}>
@@ -35,18 +37,10 @@
     <div class="modal-body">
       <div class="container_plan">
         <ul>
-          <!-- <li>
-            <label for="">Email</label>
-            <input placeholder="" [disabled]=true value={{email}} #emails="ngModel" [(ngModel)]="email" type="text">
-          </li> -->
           <li>
             <label for="">Fisrt Name</label>
             <input placeholder="" [disabled]=true value={{fisrtName}} #fisrtNames="ngModel" [(ngModel)]="fisrtName" type="text">
           </li>
-          <!-- <li>
-            <label for="">Address</label>
-            <input placeholder="" [disabled]=true value={{email}} #addresss="ngModel" [(ngModel)]="address" type="text">
-          </li> -->
           <li>
             <label for="">Mobile</label>
             <input placeholder="" [disabled]=true value={{mobile}} #mobiles="ngModel" [(ngModel)]="mobile" type="text">
@@ -62,6 +56,10 @@
           <li>
             <label for="">Available time</label>
             <input placeholder="" [disabled]=true value={{username}} #schedule_times="ngModel" [(ngModel)]="schedule_time" type="text">
+          </li>
+          <li>
+            <label for="">Available Date</label>
+            <input placeholder="" [disabled]=true value={{username}} #schedule_times="ngModel" [(ngModel)]="date" type="text">
           </li>
           <li>
             <label for="">Description</label>

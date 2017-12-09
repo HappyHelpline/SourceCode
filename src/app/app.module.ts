@@ -9,6 +9,9 @@ import { LoadingModule } from 'ngx-loading';
 import { NgDragDropModule } from 'ng-drag-drop';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
+import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
+
+
 
 //SERVICES 
 import { AuthService } from './services/auth.service';
@@ -69,7 +72,7 @@ import { ViewcustomerComponent } from './components/dashbootstrap/dashboard/take
 const Modules = [
   BrowserModule, FormsModule, HttpModule, NavbarModule, FooterModule, SidebarModule, RouterModule,
   AppRoutingModule, LbdModule, NgxDatatableModule, LoadingModule, CommonModule,
-  NgDragDropModule.forRoot(), NgbModule.forRoot(), MultiselectDropdownModule
+  NgDragDropModule.forRoot(), NgbModule.forRoot(), MultiselectDropdownModule ,Ng2DatetimePickerModule
 ];
 
 const Services = [
