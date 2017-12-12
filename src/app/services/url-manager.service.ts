@@ -17,8 +17,8 @@ export class UrlManagerService {
   constructor() {
     this.ssl = false;
     //Server1 APIS
-    //this.apiserver = 'ppgateway.filegstnow.com/happytohelp';
-    this.apiserver = '172.20.3.152:8080/happytohelp';
+    this.apiserver = 'ppgateway.filegstnow.com/happytohelp';
+    //this.apiserver = '172.20.3.152:8080/happytohelp';
     this.apiserver = (this.ssl) ? 'https' : 'http' + '://' + this.apiserver;
     //Server2 APIS
     this.apiserver2 = 'http://ppepos.filegstnow.com/Pos/invoice/admin';
